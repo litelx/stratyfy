@@ -1,0 +1,8 @@
+<p>User Profile</p>
+<div *ngIf="user$ | async as user">
+    <div>{{user.username}}</div>
+    <div>{{user.role}}</div>
+    <div>{{user.password}}</div>
+    
+    <users *ngIf="user.role == 'manager'"></users>   
+</div>

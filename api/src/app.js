@@ -9,9 +9,12 @@ const authMiddleware = require('./middleware/auth.middleware');
 require('dotenv').config();
 
 mongoose
-    .connect(`mongodb://${process.env.DATABASE_URL}:27017/stratyfy`)
+    .connect(`mongodb://${process.env.DATABASE_URL}:27017/stratyfy`, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => {
         console.log('Database connection has been established');
+    })
+    .catch(e => {
+        console.log(e);
     });
 
 let manager = new User({

@@ -1,0 +1,17 @@
+<div>Login</div>
+<form (ngSubmit)="login($event)" class="form">
+    <div class="login-form">
+        <label>Username</label>
+        <!-- <input [value]="username" required> -->
+        <input [value]="'admin'" required>
+    
+        <label>Password</label>
+        <input [value]="'password'" type="password" required>
+        <!-- <input [value]="" type="password" required> -->
+    
+        <button mat-raised-button color="primary" mat-button class="submit-btn">
+            Submit
+        </button>
+    </div>
+
+</form>

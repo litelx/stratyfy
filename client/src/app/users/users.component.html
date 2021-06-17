@@ -1,0 +1,42 @@
+<p>users</p>
+
+<!-- <div *ngIf="users$ | async as users"> -->
+    <!-- <div *ngFor="let user of users.users"> -->
+    <div *ngFor="let user of users">
+        <span class="row">
+            <span *ngIf="!user.isEdit">
+                <span>{{user.username}}</span>
+                <span>{{user.role}}</span>
+                <span>{{user.password}}</span>
+            </span>
+            <span *ngIf="user.isEdit">
+                <label>username</label>
+                <input [(ngModel)]="user.username" type="text" required>
+                <label>Password</label>
+                <input [(ngModel)]="user.password" type="text" required>
+                <label>Role</label>
+                <select name="role" id="role" [(ngModel)]="user.role">
+                    <option [value]="role.basic">{{role.basic}}</option>
+                    <option [value]="role.manager">{{role.manager}}</option>
+                </select>
+                <button (click)="updateUser($event, user)">Update User</button>
+            </span>
+            <button (click)="user.isEdit = !user.isEdit">{{!user.isEdit ? 'Edit' : 'Cancel Edit'}}</button>
+            <button (click)="deleteUser($event, user._id)">Delete</button>
+
+        </span>
+    </div>
+    <div class="row">
+        <label>username</label>
+        <input [(ngModel)]="user.username" type="text" required>
+        <label>Password</label>
+        <input [(ngModel)]="user.password" type="password" required>
+        <label>Role</label>
+        <select name="role" id="role" [(ngModel)]="user.role">
+            <option [value]="role.basic">{{role.basic}}</option>
+            <option [value]="role.manager">{{role.manager}}</option>
+        </select>
+        <button (click)="CreateNewUser($event)">Create New User</button>
+    </div>
+
+<!-- </div> -->

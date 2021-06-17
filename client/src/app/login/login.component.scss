@@ -1,0 +1,47 @@
+form {
+    align-self: center;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    display: block;
+    width: 450px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.login-form {
+    height: auto;
+    overflow-y: auto;
+    box-flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    padding: 24px 24px 36px;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+input, button {
+    max-width: 120px;
+    margin-bottom: 10px;
+    height: 24px;
+}
+
+button {
+    min-width: 128px;
+    background-color: #1a73e8;
+    color: #fff;
+    height: 36px;
+    border-radius: 4px;
+    padding: 0 8px 0 8px;
+    font-weight: 500;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    line-height: inherit;
+    vertical-align: middle;
+}
