@@ -15,12 +15,10 @@ import { MessageService } from '../message/message.service';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-    public username: string = 'admin';
-    public password: string = 'password';
+    public username: string = '';
+    public password: string = '';
     public message: string = '';
 
-
-    private login$: Subscription = new Subscription()
     constructor(private router: Router,
         private stateStore: Store<{ users: IUsersState }>,
         private messageService: MessageService,
@@ -34,7 +32,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         if (!this.username || !this.password) return;
 
-        // this.login$ = 
         this.backendApiService.login(this.username, this.password)
             .pipe(
                 map(auth => {
@@ -49,7 +46,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.login$.unsubscribe();
         this.messageService.clear();
     }
 

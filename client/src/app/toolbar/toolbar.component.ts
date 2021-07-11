@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUsersState } from '../store/user.reducer';
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
     templateUrl: './toolbar.component.html',
     styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements OnInit, OnDestroy {
+export class ToolbarComponent implements OnInit {
     user$: Observable<User | null> = new Observable<User>();
 
     constructor(
@@ -23,10 +23,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         .pipe(
             map((r) => r)
         );
-    }
-
-    ngOnDestroy(): void {
-        // this.user$.subscribe().unsubscribe();
     }
 
 }

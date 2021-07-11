@@ -34,10 +34,6 @@ describe('LoginComponent', () => {
     it('should login', () => {
         component.username = 'admin';
         component.password = 'password';
-        // await component.login(event).then(t => {
-            // console.log('-----------------------------------------', t);
-            // 
-        // })
         expect(component.username).toBeTruthy();
     });
 });
