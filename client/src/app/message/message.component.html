@@ -1,0 +1,3 @@
+<div class="message-wrapper" [class]="messageService.type" (click)="messageService.clear()" *ngIf="messageService.message">
+    <span class="message">{{messageService.message}}</span>
+</div>

@@ -1,0 +1,9 @@
+<div class="toolbar">
+    <span class="toolbar-item" *ngIf="user$ | async as user">View 
+        <a *ngIf="user.role == 'manager'" routerLink="/users">Users List</a>
+    </span>
+
+    <span class="toolbar-item" *ngIf="user$ | async as user">
+        <a *ngIf="user" routerLink="/">Logout</a>
+    </span>
+</div>

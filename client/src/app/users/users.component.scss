@@ -1,9 +1,39 @@
-span {
-    margin: 2px 5px;
+@import '../../common-style.scss';
+
+button {
+    width: 100%;
 }
-.row {
+
+table {
+    align-self: center;
+    margin: auto;
+    border-radius: 8px;
+    // border: 1px solid #dadce0;
+    display: block;
+    width: auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+tr {
     border: 1px solid gainsboro;
     border-radius: 3px;
     padding: 2px 4px;
     margin: 2px 4px;
+}
+
+th {
+    text-align: initial;
+}
+
+td {
+    width: 100px;
+    height: 30px;
+}
+
+input {
+    width: 80px;
 }

@@ -12,6 +12,10 @@ const routes: Routes = [
     {
         path: 'profile',
         component: UserProfileComponent
+    },
+    {
+        path: 'users',
+        component: UsersComponent
     }
 ];
 

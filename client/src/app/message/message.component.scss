@@ -1,0 +1,42 @@
+.message {
+    padding: 10px 20px;
+}
+
+.btn {
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border: 0;
+}
+
+.message-wrapper {
+    cursor: pointer;
+    min-height: 40px;
+    display: flex;
+    margin-top: 40px;
+    &:hover {
+        opacity: 0.86;
+    }
+}
+
+.error {
+    .message {
+        color: red;
+    }
+
+    &.message-wrapper {
+        background-color: rgb(247 217 218 / 86%);
+    }
+}
+
+.success {
+    .message {
+        color: green;
+    }
+    
+    &.message-wrapper {
+        background-color: rgb(208 236 165);;
+    }
+}

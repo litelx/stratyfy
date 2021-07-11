@@ -1,8 +1,7 @@
-<p>User Profile</p>
-<div *ngIf="user$ | async as user">
-    <div>{{user.username}}</div>
-    <div>{{user.role}}</div>
-    <div>{{user.password}}</div>
+<div *ngIf="user$ | async as user" class="profile-wrapper">
+    <p class="title">{{user.username}} Profile Details</p>
     
-    <users *ngIf="user.role == 'manager'"></users>   
+    <p class="profile-item">Username: {{user.username}}</p>
+    <p class="profile-item">Role: {{user.role}}</p>
+    <p class="profile-item">Password: {{user.password}}</p>
 </div>

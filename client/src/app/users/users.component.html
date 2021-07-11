@@ -1,42 +1,55 @@
-<p>users</p>
+<p class="title">Users</p>
 
 <!-- <div *ngIf="users$ | async as users"> -->
-    <!-- <div *ngFor="let user of users.users"> -->
-    <div *ngFor="let user of users">
-        <span class="row">
-            <span *ngIf="!user.isEdit">
-                <span>{{user.username}}</span>
-                <span>{{user.role}}</span>
-                <span>{{user.password}}</span>
-            </span>
-            <span *ngIf="user.isEdit">
-                <label>username</label>
-                <input [(ngModel)]="user.username" type="text" required>
-                <label>Password</label>
-                <input [(ngModel)]="user.password" type="text" required>
-                <label>Role</label>
-                <select name="role" id="role" [(ngModel)]="user.role">
+<!-- <div *ngFor="let user of users.users"> -->
+
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <!-- <ng-template *ngIf="users$ | async as users"> -->
+            <tr class="row" *ngFor="let user of users">
+            <td><input [disabled]="!user.isEdit" [(ngModel)]="user.username" type="text" required></td>
+            <td><input [disabled]="!user.isEdit" [(ngModel)]="user.password" type="text" required></td>
+            <td>
+                <select [disabled]="!user.isEdit" name="role" id="role" [(ngModel)]="user.role">
                     <option [value]="role.basic">{{role.basic}}</option>
                     <option [value]="role.manager">{{role.manager}}</option>
                 </select>
-                <button (click)="updateUser($event, user)">Update User</button>
-            </span>
-            <button (click)="user.isEdit = !user.isEdit">{{!user.isEdit ? 'Edit' : 'Cancel Edit'}}</button>
-            <button (click)="deleteUser($event, user._id)">Delete</button>
+            </td>
+            <td>
+                <button (click)="user.isEdit = !user.isEdit">{{!user.isEdit ? 'Edit' : 'Cancel Edit'}}</button>
+            </td>
+            <td>
+                <button *ngIf="user.isEdit" (click)="updateUser(user)">Update User</button>
+                <button *ngIf="!user.isEdit" (click)="deleteUser(user._id)">Delete</button>
+            </td>
+        </tr>
 
-        </span>
-    </div>
-    <div class="row">
-        <label>username</label>
-        <input [(ngModel)]="user.username" type="text" required>
-        <label>Password</label>
-        <input [(ngModel)]="user.password" type="password" required>
-        <label>Role</label>
-        <select name="role" id="role" [(ngModel)]="user.role">
-            <option [value]="role.basic">{{role.basic}}</option>
-            <option [value]="role.manager">{{role.manager}}</option>
-        </select>
-        <button (click)="CreateNewUser($event)">Create New User</button>
-    </div>
+    <!-- </ng-template> -->
+        
+    <tr class="row">
+        <td>
+            <input [(ngModel)]="user.username" type="text" required>
+        </td>
+        <td>
+            <input [(ngModel)]="user.password" type="password" required>
+        </td>
+        <td>
+            <select name="role" id="role" [(ngModel)]="user.role">
+                <option [value]="role.basic">{{role.basic}}</option>
+                <option [value]="role.manager">{{role.manager}}</option>
+            </select>
+        </td>
+        <!-- <td></td> -->
+        <td>
+            <button (click)="CreateNewUser()">Create User</button>
+        </td>
+    </tr>
+</table>
 
 <!-- </div> -->
